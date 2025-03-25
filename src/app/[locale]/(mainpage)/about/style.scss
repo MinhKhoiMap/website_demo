@@ -1,0 +1,16 @@
+.about-page {
+    .mission {
+        list-style-type: disc !important;
+
+        li {
+            margin: 8px 0;
+            display: list-item !important;
+        }
+    }
+
+    .slogan {
+        p {
+            margin-bottom: 0;
+        }
+    }
+}

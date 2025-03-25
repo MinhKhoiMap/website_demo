@@ -1,0 +1,78 @@
+/*!------------------------------------------------------------------
+[MAIN STYLESHEET]
+
+PROJECT:	Project Name
+VERSION:	Versoin Number
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[TABLE OF CONTENTS]
+-------------------------------------------------------------------*/
+@import "variables";
+
+@import "mixins";
+
+@import "typography";
+
+@import "buttons";
+
+@import "common";
+
+@import "templates/navigation";
+
+@import "templates/slider";
+
+@import "templates/homepage";
+
+@import "templates/otherspage";
+
+.card {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0px 25px 15px;
+    min-width: 150px;
+    padding: 5px;
+    box-shadow: none;
+    transition: box-shadow 0.35s linear;
+    // transition-delay: 0.25s;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 15%;
+        height: 10%;
+        transition: 0.35s ease-out;
+        background: transparent;
+        z-index: 2;
+    }
+
+    &::before {
+        top: 0;
+        left: 0;
+        border-left: 1px solid rgb(28, 31, 30);
+        border-top: 1px solid rgb(28, 31, 30);
+    }
+
+    &::after {
+        bottom: 0;
+        right: 0;
+        border-right: 1px solid rgb(28, 31, 30);
+        border-bottom: 1px solid rgb(28, 31, 30);
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    &:hover::before,
+    &:hover::after {
+        width: 99%;
+        height: 98%;
+    }
+}

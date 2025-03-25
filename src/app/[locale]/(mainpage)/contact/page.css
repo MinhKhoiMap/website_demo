@@ -1,0 +1,7 @@
+.contact-page a:hover svg {
+  transform: scale(1.1);
+}
+
+.navbar--show {
+  opacity: 1 !important;
+}

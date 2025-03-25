@@ -1,0 +1,9 @@
+.direct_link:hover {
+  color: white !important;
+  background: transparent !important;
+}
+
+.direct_link .icon {
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+}

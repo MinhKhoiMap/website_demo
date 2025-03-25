@@ -1,0 +1,13 @@
+.indicator {
+    transition: all 0.2s;
+    background: white;
+    width: 9px;
+    border-radius: 999999;
+
+    &.active {
+        background: #971919;
+        width: 17px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px white;
+    }
+}

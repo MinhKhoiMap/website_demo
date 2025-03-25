@@ -1,0 +1,56 @@
+@import "variables";
+@import "mixins";
+@import "typography";
+
+.tiptap__wrapper {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.tiptap {
+    border: none !important;
+    outline: none !important;
+
+    *::selection {
+        background: #c3d3ef !important;
+        color: #000 !important;
+    }
+
+    figure {
+        &.has-focus {
+            img {
+                border-radius: 3px;
+                border: solid 3px #ce2027;
+            }
+        }
+    }
+
+    p.is-editor-empty:first-child::before {
+        color: #b0b0b0;
+        content: attr(data-placeholder);
+        float: left;
+        height: 0;
+        font-style: italic;
+        pointer-events: none;
+    }
+}
+
+.menubar__group button {
+    display: flex;
+    align-items: flex-end;
+    border-radius: 5px;
+
+    &:disabled {
+        color: #ccc !important;
+        user-select: none;
+    }
+
+    &:hover {
+        color: #ce2027;
+    }
+
+    &.is-active {
+        color: #ce2027;
+    }
+}

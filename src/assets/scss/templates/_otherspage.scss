@@ -1,0 +1,44 @@
+.filter-controls {
+  li {
+    cursor: pointer;
+    transition: 0.1s ease;
+    &.active {
+      font-weight: 600;
+      color: $primary-color;
+    }
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.tag-list {
+  a {
+    display: block;
+    padding: 5px 10px;
+    background: $light;
+    color: $text-color;
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+}
+
+.logo-footer .logotext {
+  padding: 5px 10px;
+  visibility: hidden;
+  background-color: #fff;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+  margin-top: -40px;
+  margin-left: -40px;
+}
+
+.logo-footer:hover .logotext {
+  visibility: visible;
+}

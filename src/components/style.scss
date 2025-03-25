@@ -1,0 +1,34 @@
+.card_overlay {
+    position: relative;
+    overflow: hidden;
+
+    .text_overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        transition: all 0.3s;
+
+        p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            transform: translateY(100%);
+            transition: all 0.3s;
+            color: white;
+        }
+    }
+
+    &:hover .text_overlay {
+        background-color: rgba(0, 0, 0, 0.7);
+
+        p {
+            transform: translateY(0);
+            transition: all 0.3s;
+        }
+    }
+}

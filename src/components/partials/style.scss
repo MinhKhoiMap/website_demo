@@ -1,0 +1,21 @@
+header.header {
+    .ant-switch-inner {
+        background-color: #da251d;
+    }
+
+    .ant-switch-handle {
+        &::before {
+            background-color: #ffcd00;
+        }
+    }
+
+    .ant-switch-checked .ant-switch-handle {
+        &::before {
+            background-color: #fff;
+        }
+    }
+
+    .ant-switch-checked .ant-switch-inner {
+        background: #ccc;
+    }
+}
