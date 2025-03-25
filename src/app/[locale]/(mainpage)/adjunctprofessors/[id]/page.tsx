@@ -1,4 +1,4 @@
-import { useDOMParser } from "@/hooks/domParser";
+import { useDOMParser as DOMParser } from "@/hooks/domParser";
 import { getMemberServices } from "@/services/member.service";
 import { RequestProps } from "@/types/page.type";
 import { getTranslations } from "next-intl/server";
@@ -35,10 +35,8 @@ export default async function page({ params }: RequestProps) {
           </div>
           <div className="col-md-6 mb-5">
             <h3>{data.metadata.name}</h3>
-            <h6 className="text-color">{useDOMParser(data.metadata.title)}</h6>
-            <p className="mb-5 text-justify">
-              {useDOMParser(data.metadata.bio)}
-            </p>
+            <h6 className="text-color">{DOMParser(data.metadata.title)}</h6>
+            <p className="mb-5 text-justify">{DOMParser(data.metadata.bio)}</p>
             <div className="row">
               {data.metadata.interest && data.metadata.interest?.length > 0 && (
                 <div className="col-md-6">
@@ -46,6 +44,7 @@ export default async function page({ params }: RequestProps) {
                   <ul className="pl-3">
                     {data.metadata.interest.map((int) => (
                       <li
+                        key={int}
                         className="mb-3"
                         style={{
                           listStyleType: "circle",
@@ -60,7 +59,7 @@ export default async function page({ params }: RequestProps) {
               )}
             </div>
           </div>
-          <div className="col-12 content">{useDOMParser(data.detail)}</div>
+          <div className="col-12 content">{DOMParser(data.detail)}</div>
         </div>
       </div>
     </section>

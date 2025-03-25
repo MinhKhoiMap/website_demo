@@ -1,4 +1,4 @@
-import { useDOMParser } from "@/hooks/domParser";
+import { useDOMParser as DOMParser } from "@/hooks/domParser";
 import { getPostServices } from "@/services/post.service";
 import { RequestProps } from "@/types/page.type";
 import Image from "next/image";
@@ -35,7 +35,7 @@ export default async function page({ params }: RequestProps) {
           {/* <!-- event details --> */}
           <div className="row">
             <div className="col-12 mb-50 content">
-              {useDOMParser(data.content)}
+              {DOMParser(data.content)}
             </div>
           </div>
 

@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { PageHeaderContextComponent } from "@/app/context";
 import { useDOMParser } from "@/hooks/domParser";
+import Image from "next/image";
 
 const mission = {
   en: [
@@ -35,7 +36,7 @@ export default function AboutPage() {
 
   async function markdownToHtml(markdown: string) {
     const result = await remark().use(html).process(markdown);
-    return useDOMParser(result.toString());
+    return result.toString();
   }
 
   return (
@@ -67,7 +68,7 @@ export default function AboutPage() {
           <div className="p-2 border-2 rounded-[24px] border-[#689EE0] mb-5">
             <div className="slogan px-[60px] py-10 rounded-[16px] bg-[#EEF6FF] relative">
               <div className="w-fit rotate-180 absolute top-3 left-[15px]">
-                <img
+                <Image
                   src="/images/quote-icon.png"
                   alt="icon"
                   width={36}
@@ -75,7 +76,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="w-fit absolute bottom-3 right-[15px]">
-                <img
+                <Image
                   src="/images/quote-icon.png"
                   alt="icon"
                   width={36}
@@ -83,10 +84,10 @@ export default function AboutPage() {
                 />
               </div>
               <p className="text-justify italic">
-                {markdownToHtml(i18n("about_quote"))}
+                {useDOMParser(String(markdownToHtml(i18n("about_quote"))))}
               </p>
               <p className="font-bold mt-3">
-                {markdownToHtml(i18n("about_author"))}
+                {useDOMParser(String(markdownToHtml(i18n("about_author"))))}
               </p>
             </div>
           </div>
@@ -114,7 +115,9 @@ export default function AboutPage() {
           </div>
           <ul className="mission mt-2">
             {mission[locale].map((mission: string) => (
-              <li className="ml-3">{mission}</li>
+              <li className="ml-3" key={mission}>
+                {mission}
+              </li>
             ))}
           </ul>
 

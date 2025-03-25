@@ -84,6 +84,7 @@ export default async function page({
               <div className="flex gap-3 flex-wrap">
                 {data.map((studio) => (
                   <Card
+                    key={studio.id}
                     id={studio.id}
                     thumb={studio.thumbnail}
                     basePath="design_studio"

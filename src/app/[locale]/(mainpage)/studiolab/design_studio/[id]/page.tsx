@@ -15,7 +15,7 @@ export default async function page({ params }: RequestProps) {
   const para = await params;
 
   const {
-    payload: { data, headerPageInfo },
+    payload: { data },
   } = await getISCMServices.getProject(para.id, para.locale);
 
   return (
@@ -41,7 +41,9 @@ export default async function page({ params }: RequestProps) {
                 <p className="underline font-bold mb-0">Supervisor Team:</p>
                 <div className="flex flex-wrap">
                   {data.supervisor.map((supervisor) => (
-                    <p className="mb-2 w-1/2 text-center">{supervisor}</p>
+                    <p key={supervisor} className="mb-2 w-1/2 text-center">
+                      {supervisor}
+                    </p>
                   ))}
                 </div>
               </span>
@@ -49,7 +51,9 @@ export default async function page({ params }: RequestProps) {
                 <p className="underline font-bold mb-0">Student List:</p>
                 <div className="flex flex-wrap">
                   {data.members.map((member) => (
-                    <p className="mb-2 w-1/2 text-center">{member}</p>
+                    <p key={member} className="mb-2 w-1/2 text-center">
+                      {member}
+                    </p>
                   ))}
                 </div>
               </span>
@@ -59,7 +63,7 @@ export default async function page({ params }: RequestProps) {
           <div className="col-lg-6 col-12">
             <figure className="w-full mt-2 mt-lg-0 mb-5 mb-lg-0">
               <Image
-                src={data.image}
+                src={data.thumbnail}
                 alt={para.id}
                 width={1000}
                 height={800}
@@ -67,7 +71,7 @@ export default async function page({ params }: RequestProps) {
                 className="w-full h-full object-contain object-top"
               />
             </figure>
-            <Mansory listItems={data.galley} />
+            <Mansory listItems={data.gallery} />
           </div>
         </div>
       </section>

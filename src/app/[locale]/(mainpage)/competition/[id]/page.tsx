@@ -1,4 +1,4 @@
-import { useDOMParser } from "@/hooks/domParser";
+import { useDOMParser as DOMParser } from "@/hooks/domParser";
 import { getCompetitionServices } from "@/services/competition.service";
 import { RequestProps } from "@/types/page.type";
 import Image from "next/image";
@@ -84,8 +84,8 @@ export default async function page({ params }: RequestProps) {
           </div>
         </div>
         <div className="row">
-          {data.isLaunch && useDOMParser(data.registrationContent)}
-          {useDOMParser(data.content)}
+          {data.isLaunch && DOMParser(data.registrationContent)}
+          {DOMParser(data.content)}
         </div>
       </div>
     </section>

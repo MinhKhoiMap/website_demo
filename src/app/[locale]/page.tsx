@@ -8,7 +8,7 @@ import { bg_video } from "@/constants";
 
 import Header from "@/components/partials/header";
 import Footer from "@/components/partials/footer";
-import { useDOMParser } from "@/hooks/domParser";
+import { useDOMParser as DOMParser } from "@/hooks/domParser";
 import { pbkdf2Sync } from "crypto";
 
 export default async function Home() {
@@ -117,7 +117,7 @@ export default async function Home() {
             <div className="col-lg-6 col-sm-4 position-relative success-video"></div>
             <div className="col-lg-6 col-sm-8" style={{ textAlign: "justify" }}>
               <div className="bg-white p-5">
-                <p>{useDOMParser(success_story.content)}</p>
+                <p>{DOMParser(success_story.content)}</p>
               </div>
             </div>
           </div>

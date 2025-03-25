@@ -10,14 +10,14 @@ import Navbar from "./Navbar";
 // Assets
 import "./page.css";
 
-let logo = "/images/iscm_logo.webp";
-let linkedin = "/images/icons/brand-linkedin.svg";
-let website = "/images/icons/unlink.svg";
-let fb = "/images/icons/brand-facebook.svg";
-let youtube = "/images/icons/brand-youtube.svg";
-let award = "/images/icons/award.svg";
-let link = "/images/icons/link.svg";
-let notebook = "/images/icons/notebook.svg";
+const logo = "/images/iscm_logo.webp";
+const linkedin = "/images/icons/brand-linkedin.svg";
+const website = "/images/icons/unlink.svg";
+const fb = "/images/icons/brand-facebook.svg";
+const youtube = "/images/icons/brand-youtube.svg";
+const award = "/images/icons/award.svg";
+const link = "/images/icons/link.svg";
+const notebook = "/images/icons/notebook.svg";
 
 export default function ContactPage() {
   const [showNav, setShowNav] = useState(false);

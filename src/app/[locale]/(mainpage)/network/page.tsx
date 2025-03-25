@@ -18,7 +18,7 @@ export default async function page({ searchParams, params }: RequestProps) {
         <div className="container">
           <div className="row">
             {data.map(({ title, image, name, id }) => (
-              <div className="col-lg-4 col-sm-6 mb-4">
+              <div className="col-lg-4 col-sm-6 mb-4" key={name}>
                 <MemberCard
                   basePath="network"
                   title={name}

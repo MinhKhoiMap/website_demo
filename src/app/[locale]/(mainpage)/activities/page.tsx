@@ -23,6 +23,7 @@ export default async function ActivitiesPage({
           <div className="row align-items-stretch">
             {data.map((act) => (
               <div
+                key={act.id}
                 className="col-lg-4 col-sm-6 mb-4"
                 style={{ height: "fit-content" }}
               >

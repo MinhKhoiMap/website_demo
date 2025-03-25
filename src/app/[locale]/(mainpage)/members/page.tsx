@@ -20,7 +20,7 @@ export default async function MembersPage({
         <div className="container">
           <div className="row">
             {data.map(({ name, image, title, id }) => (
-              <div className="col-lg-4 col-sm-6 mb-4">
+              <div className="col-lg-4 col-sm-6 mb-4" key={name}>
                 <MemberCard
                   basePath="members"
                   title={name}

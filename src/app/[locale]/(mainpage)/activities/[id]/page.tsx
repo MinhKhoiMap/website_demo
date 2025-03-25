@@ -3,7 +3,7 @@ import "./style.scss";
 import { getActivitiesServices } from "@/services/activities.service";
 import { RequestProps } from "@/types/page.type";
 import React from "react";
-import Booklet from "./booklet";
+// import Booklet from "./booklet";
 
 export default async function page({ params }: RequestProps) {
   const slug = (await params).id;
@@ -33,13 +33,14 @@ export default async function page({ params }: RequestProps) {
         <div className="row">
           <div className="col-12 content">{data.content}</div>
 
-          {data.flipbook && (
+          {/* {data.flipbook && (
             <div className="book-section">
               <div className="container">
                 {data.flipbook &&
                   data.flipbook_page?.map(
                     ({ flipbook_page_front, flipbook_page_back }, id) => (
                       <Booklet
+                        key={id}
                         flipbook_page_front={flipbook_page_front}
                         flipbook_page_back={flipbook_page_back}
                         flipbook_width={data.flipbook_width}
@@ -50,7 +51,7 @@ export default async function page({ params }: RequestProps) {
                   )}
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </section>

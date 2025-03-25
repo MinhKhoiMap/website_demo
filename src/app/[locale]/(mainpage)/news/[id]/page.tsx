@@ -1,5 +1,5 @@
 import { PageHeaderContextComponent } from "@/app/context";
-import { useDOMParser } from "@/hooks/domParser";
+import { useDOMParser as DOMParser } from "@/hooks/domParser";
 import { getPostServices } from "@/services/post.service";
 import Image from "next/image";
 
@@ -39,9 +39,7 @@ export default async function page({
 
         {/* <!-- event details --> */}
         <div className="row">
-          <div className="col-12 mb-50 content">
-            {useDOMParser(data.content)}
-          </div>
+          <div className="col-12 mb-50 content">{DOMParser(data.content)}</div>
         </div>
 
         {/* <!-- border --> */}
