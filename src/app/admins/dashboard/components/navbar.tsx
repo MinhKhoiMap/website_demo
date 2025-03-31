@@ -8,17 +8,13 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { AlignJustify, LogOut, User, View } from "lucide-react";
-export default async function Navbar() {
+
+export default function Navbar() {
   return (
     <nav className="flex py-2 px-6 gap-5 border-b border-gray-800">
       <div className="flex flex-1 items-center gap-4">

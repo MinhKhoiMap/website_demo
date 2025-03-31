@@ -4,9 +4,9 @@ import { getMemberServices } from "@/services/member.service";
 import DataTable from "../../components/datatable";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { useDOMParser } from "@/hooks/domParser";
-import { DataTableRowActions } from "../../components/datatable-row-actions";
+// import { DataTableRowActions } from "../../components/datatable-row-actions";
 
-export default async function page({ searchParams, params }: RequestProps) {
+export default async function page({ searchParams }: RequestProps) {
   const page: number = (await searchParams).page || 1;
 
   const {

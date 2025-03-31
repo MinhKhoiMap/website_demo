@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-  createContext,
-  FormEvent,
-  MouseEvent,
-  useContext,
-  useState,
-} from "react";
+import React, { MouseEvent } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -40,20 +34,20 @@ import { ChevronDown, PlusCircle } from "lucide-react";
 //   setPostID: React.Dispatch<React.SetStateAction<string | null>>;
 // } | null>(null);
 
-interface DraftType {
-  category: string;
-  data: {
-    metadata: {
-      [key: string]: any;
-    };
-    content: string | null;
-  };
-}
+// interface DraftType {
+//   category: string;
+//   data: {
+//     metadata: {
+//       [key: string]: any;
+//     };
+//     content: string | null;
+//   };
+// }
 
 const NewsMenuItem = ({ currentPath }: { currentPath: string }) => {
   const router = useRouter();
 
-  function handleAddPost(e: MouseEvent<HTMLElement>) {
+  function handleAddPost(_: MouseEvent<HTMLElement>) {
     router.push(`/admins/dashboard/news/add`);
 
     // if (filename && /^[A-Za-z0-9_\-]+$/.test(filename)) {

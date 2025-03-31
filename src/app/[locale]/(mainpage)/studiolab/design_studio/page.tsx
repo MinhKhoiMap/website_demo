@@ -5,10 +5,7 @@ import YearTabs from "./year_tabs";
 import { TabsProps } from "antd";
 import Card from "@/components/card";
 import CardOverlay from "@/components/card_overlay";
-import {
-  getCollaborationServices,
-  getISCMServices,
-} from "@/services/studiolab.service";
+import { getCollaborationServices } from "@/services/studiolab.service";
 import { LangType } from "@/types/lang.type";
 
 export default async function page({
@@ -46,7 +43,7 @@ export default async function page({
 
   try {
     const {
-      payload: { data, totalPage },
+      payload: { data },
     } = await getCollaborationServices.getList(page, para.locale);
 
     return (

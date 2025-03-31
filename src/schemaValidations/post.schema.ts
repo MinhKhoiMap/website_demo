@@ -1,5 +1,4 @@
 import z from "zod";
-import { PageHeaderSchema } from "./pageHeader.schema";
 
 export const MetaDataSchema = z.object({
   id: z.string(),
@@ -94,12 +93,12 @@ export const CreatePostBody = z.object({
 
 export type CreatePostBodyType = z.TypeOf<typeof CreatePostBody>;
 
-const ACCEPTED_IMAGE_TYPES = [
-  "image/jpeg",
-  "image/jpg",
-  "image/png",
-  "image/webp",
-];
+// const ACCEPTED_IMAGE_TYPES = [
+//   "image/jpeg",
+//   "image/jpg",
+//   "image/png",
+//   "image/webp",
+// ];
 
 export const UpdatePostBody = z.object({
   metadata: z

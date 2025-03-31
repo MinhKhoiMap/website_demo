@@ -67,7 +67,7 @@ const LogIn = () => {
       }
       router.push("/admins/dashboard");
     }
-  }, []);
+  }, [router]);
 
   return (
     <div>

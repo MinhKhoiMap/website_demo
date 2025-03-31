@@ -3,7 +3,7 @@ import { RequestProps } from "@/types/page.type";
 import React from "react";
 import DataTable from "../components/datatable";
 import { TableCell, TableRow } from "@/components/ui/table";
-import { DataTableRowActions } from "../components/datatable-row-actions";
+// import { DataTableRowActions } from "../components/datatable-row-actions";
 import Link from "next/link";
 
 export default async function page({ searchParams, params }: RequestProps) {

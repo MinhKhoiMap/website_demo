@@ -1,7 +1,6 @@
 import { PageHeaderContextComponent } from "@/app/context";
 import MemberCard from "@/components/card";
 import Pagination from "@/components/pagination";
-import PageHeader from "@/components/partials/pageHeader";
 import { getMemberServices } from "@/services/member.service";
 import { RequestProps } from "@/types/page.type";
 

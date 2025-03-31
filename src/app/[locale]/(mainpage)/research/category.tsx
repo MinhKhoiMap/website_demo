@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import React, { ReactElement } from "react";
+import React from "react";
 
 export default function ResearchCategory({
   introduction,

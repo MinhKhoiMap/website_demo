@@ -1,10 +1,8 @@
 import http from "@/lib/http";
 import {
-  CompetitionCardType,
   CompetitionListResType,
   CompetitionResType,
 } from "@/schemaValidations/competition.schema";
-import { LangType } from "@/types/lang.type";
 
 const endpointRoot = "api/competition";
 

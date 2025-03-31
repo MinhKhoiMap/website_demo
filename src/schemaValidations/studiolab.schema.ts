@@ -1,5 +1,4 @@
 import z from "zod";
-import { PageHeaderSchema } from "./pageHeader.schema";
 
 export const CollaborationStudioCard = z.object({
   id: z.string(),

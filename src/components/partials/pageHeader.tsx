@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { usePageHeaderContext } from "@/app/context";
 
-import { findUrlName } from "@/lib/utils";
+// import { findUrlName } from "@/lib/utils";
 import { mainMenuEn } from "@/constants/en";
 import { mainMenuVi } from "@/constants/vi";
 
@@ -15,7 +15,7 @@ export default function PageHeader() {
   const locale = useLocale();
   const i18n = useTranslations();
   const mainMenu = locale === "en" ? mainMenuEn : mainMenuVi;
-  const nameMenu = findUrlName(mainMenu, pathname[2] || "");
+  // const nameMenu = findUrlName(mainMenu, pathname[2] || "");
 
   const { title, description, bgImage } = usePageHeaderContext();
 

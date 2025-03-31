@@ -1,14 +1,6 @@
 "use client";
 
-import { UserType } from "@/schemaValidations/account.schema";
-import {
-  createContext,
-  ReactNode,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useState } from "react";
 
 const bgImageDefault = "/images/backgrounds/page-title.jpg";
 

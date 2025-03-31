@@ -1,12 +1,12 @@
 import { TableCell, TableRow } from "@/components/ui/table";
 import { RequestProps } from "@/types/page.type";
 import React from "react";
-import { DataTableRowActions } from "../../components/datatable-row-actions";
+// import { DataTableRowActions } from "../../components/datatable-row-actions";
 import { getMemberServices } from "@/services/member.service";
 import { useDOMParser } from "@/hooks/domParser";
 import DataTable from "../../components/datatable";
 
-export default async function page({ searchParams, params }: RequestProps) {
+export default async function page({ searchParams }: RequestProps) {
   const page = (await searchParams).page || 1;
 
   const {

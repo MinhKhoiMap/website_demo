@@ -9,7 +9,7 @@ import { bg_video } from "@/constants";
 import Header from "@/components/partials/header";
 import Footer from "@/components/partials/footer";
 import { useDOMParser as DOMParser } from "@/hooks/domParser";
-import { pbkdf2Sync } from "crypto";
+// import { pbkdf2Sync } from "crypto";
 
 export default async function Home() {
   const i18n = await getTranslations();

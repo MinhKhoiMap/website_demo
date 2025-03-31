@@ -23,7 +23,10 @@ export default function StudioLabCategory({
   const i18n = useTranslations();
 
   return (
-    <div className="row mb-[78px]">
+    <div
+      className="row mb-[78px]"
+      style={{ flexDirection: isReverse ? "row-reverse" : "row" }}
+    >
       <div className="col-6 mt-3 border-t border-[#971919] first:border-none">
         <div className="flex flex-col">
           <h2

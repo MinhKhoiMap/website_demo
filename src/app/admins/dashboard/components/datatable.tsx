@@ -2,15 +2,15 @@ import React from "react";
 import {
   Table,
   TableBody,
-  TableCell,
+  // TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { DataTableRowActions } from "./datatable-row-actions";
+// import { DataTableRowActions } from "./datatable-row-actions";
 import DataTablePagination from "./datatable-pagination";
 import { Separator } from "@radix-ui/react-dropdown-menu";
-import { useDOMParser } from "@/hooks/domParser";
+// import { useDOMParser } from "@/hooks/domParser";
 
 export default function DataTable({
   totalPage,

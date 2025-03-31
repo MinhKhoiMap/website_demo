@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Tabs } from "antd";
 import type { TabsProps } from "antd";

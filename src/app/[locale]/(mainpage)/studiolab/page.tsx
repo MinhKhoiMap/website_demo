@@ -18,67 +18,67 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 
-const studioCategories = [
-  {
-    title: "UEH-MAKERSPACE",
-    introduction: `UEH - MakerSpace là tổ hợp không gian sáng tạo trực thuộc Trường Công nghệ và Thiết kế - Đại học Kinh tế TP. Hồ Chí Minh. UEH Makerspace tự hào là nơi hiện thực hóa những ý tưởng đang nằm trên trang giấy cùng hàng loạt máy móc hiện đại, những trainers có chuyên môn, và sức sáng tạo mạnh mẽ của bạn - những makers tương lai.`,
-    subtitles: [
-      <div key={"addr"} className="flex gap-[6px]">
-        <div>
-          <FontAwesomeIcon icon={faLocationDot} color="#971919" />
-        </div>
-        <div>
-          <p className="!leading-4 text-sm">
-            UEH Cơ sở B <br />
-            279 Nguyễn Tri Phương, Phường 5, Quận 10, TP. HCM
-          </p>
-        </div>
-      </div>,
-    ],
-    thumb: "/images/studiolab/makerspace.png",
-    categoryLink: "",
-  },
-  {
-    title: "LIVING LAB",
-    introduction:
-      "Living Lab hay còn gọi là Phòng Thí Nghiệm Sống là một hệ sinh thái đổi mới mở được vận hành với định hướng lấy người sử dụng làm trung tâm, tận dụng tối ưu sự kết nối các bên liên quan, với yếu tố cốt lõi là tích hợp nghiên cứu – giáo dục và đổi mới sáng tạo nhằm giải quyết các vấn đề thực tế từ cuộc sống.",
-    subtitles: [
-      <div key={"addrr"} className="flex gap-[6px]">
-        <div>
-          <FontAwesomeIcon icon={faLocationDot} color="#971919" />
-        </div>
-        <div>
-          <p className="!leading-4 text-sm">
-            UEH Cơ sở V <br />
-            232/6 Võ Thị Sáu, Phường Võ Thị Sáu, Quận 3, TP. HCM
-          </p>
-        </div>
-      </div>,
-    ],
-    thumb: "/images/studiolab/livinglab.png",
-    categoryLink: "https://gogreen.ueh.edu.vn/living-lab-uehgc",
-  },
-  {
-    title: "GALLERY",
-    introduction:
-      "Hướng tới kiến tạo cộng đồng truyền cảm hứng nghệ thuật, UEH Gallery được xây dựng như một khu vực diễn ra các triển lãm tác phẩm nghệ thuật, đặc biệt là các tác phẩm có sự kết hợp và giao thoa giữa công nghệ - nghệ thuật. Bên cạnh đó, Gallery còn thường diễn ra các workshop nghệ thuật, công nghệ, nghiên cứu để phát triển đô thị thông minh và bền vững.",
-    subtitles: [
-      <div key={"gallery"} className="flex gap-[6px]">
-        <div>
-          <FontAwesomeIcon icon={faLocationDot} color="#971919" />
-        </div>
-        <div>
-          <p className="!leading-4 text-sm">
-            UEH Cơ sở V <br />
-            232/6 Võ Thị Sáu, Phường Võ Thị Sáu, Quận 3, TP. HCM
-          </p>
-        </div>
-      </div>,
-    ],
-    thumb: "/images/studiolab/gallery.png",
-    categoryLink: "",
-  },
-];
+// const studioCategories = [
+//   {
+//     title: "UEH-MAKERSPACE",
+//     introduction: `UEH - MakerSpace là tổ hợp không gian sáng tạo trực thuộc Trường Công nghệ và Thiết kế - Đại học Kinh tế TP. Hồ Chí Minh. UEH Makerspace tự hào là nơi hiện thực hóa những ý tưởng đang nằm trên trang giấy cùng hàng loạt máy móc hiện đại, những trainers có chuyên môn, và sức sáng tạo mạnh mẽ của bạn - những makers tương lai.`,
+//     subtitles: [
+//       <div key={"addr"} className="flex gap-[6px]">
+//         <div>
+//           <FontAwesomeIcon icon={faLocationDot} color="#971919" />
+//         </div>
+//         <div>
+//           <p className="!leading-4 text-sm">
+//             UEH Cơ sở B <br />
+//             279 Nguyễn Tri Phương, Phường 5, Quận 10, TP. HCM
+//           </p>
+//         </div>
+//       </div>,
+//     ],
+//     thumb: "/images/studiolab/makerspace.png",
+//     categoryLink: "",
+//   },
+//   {
+//     title: "LIVING LAB",
+//     introduction:
+//       "Living Lab hay còn gọi là Phòng Thí Nghiệm Sống là một hệ sinh thái đổi mới mở được vận hành với định hướng lấy người sử dụng làm trung tâm, tận dụng tối ưu sự kết nối các bên liên quan, với yếu tố cốt lõi là tích hợp nghiên cứu – giáo dục và đổi mới sáng tạo nhằm giải quyết các vấn đề thực tế từ cuộc sống.",
+//     subtitles: [
+//       <div key={"addrr"} className="flex gap-[6px]">
+//         <div>
+//           <FontAwesomeIcon icon={faLocationDot} color="#971919" />
+//         </div>
+//         <div>
+//           <p className="!leading-4 text-sm">
+//             UEH Cơ sở V <br />
+//             232/6 Võ Thị Sáu, Phường Võ Thị Sáu, Quận 3, TP. HCM
+//           </p>
+//         </div>
+//       </div>,
+//     ],
+//     thumb: "/images/studiolab/livinglab.png",
+//     categoryLink: "https://gogreen.ueh.edu.vn/living-lab-uehgc",
+//   },
+//   {
+//     title: "GALLERY",
+//     introduction:
+//       "Hướng tới kiến tạo cộng đồng truyền cảm hứng nghệ thuật, UEH Gallery được xây dựng như một khu vực diễn ra các triển lãm tác phẩm nghệ thuật, đặc biệt là các tác phẩm có sự kết hợp và giao thoa giữa công nghệ - nghệ thuật. Bên cạnh đó, Gallery còn thường diễn ra các workshop nghệ thuật, công nghệ, nghiên cứu để phát triển đô thị thông minh và bền vững.",
+//     subtitles: [
+//       <div key={"gallery"} className="flex gap-[6px]">
+//         <div>
+//           <FontAwesomeIcon icon={faLocationDot} color="#971919" />
+//         </div>
+//         <div>
+//           <p className="!leading-4 text-sm">
+//             UEH Cơ sở V <br />
+//             232/6 Võ Thị Sáu, Phường Võ Thị Sáu, Quận 3, TP. HCM
+//           </p>
+//         </div>
+//       </div>,
+//     ],
+//     thumb: "/images/studiolab/gallery.png",
+//     categoryLink: "",
+//   },
+// ];
 
 const EventItem = ({
   title,

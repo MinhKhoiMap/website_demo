@@ -22,7 +22,8 @@ const getCourseServices = {
     options?: { [key: string]: any }
   ) => {
     return http.get<CourseResType>(
-      `/api/course/${dirName}/${idCourse}${lang ? `?lang=${lang}` : ""}`
+      `/api/course/${dirName}/${idCourse}${lang ? `?lang=${lang}` : ""}`,
+      options
     );
   },
 };

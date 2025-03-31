@@ -1,12 +1,15 @@
 "use client";
 
+import Image from "next/image";
+
 export default function ErrorComp() {
   return (
     <figure className="w-full flex flex-col items-center pt-16">
-      <img
+      <Image
         src="/images/error.png"
         alt="Some things went wrong..."
         width={150}
+        height={150}
         className="object-contain"
       />
       <figcaption className="text-center mt-3">

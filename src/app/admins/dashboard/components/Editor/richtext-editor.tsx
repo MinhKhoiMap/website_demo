@@ -28,16 +28,16 @@ import { toast } from "@/hooks/use-toast";
 import processHTMLContent from "@/lib/html2md";
 import { normalizeFile } from "@/lib/utils";
 
-const allowedImageTypes = [
-  "image/bmp",
-  "image/gif",
-  "image/jpeg",
-  "image/jpg",
-  "image/png",
-  "image/tiff",
-  "image/webp",
-  "image/x-icon",
-];
+// const allowedImageTypes = [
+//   "image/bmp",
+//   "image/gif",
+//   "image/jpeg",
+//   "image/jpg",
+//   "image/png",
+//   "image/tiff",
+//   "image/webp",
+//   "image/x-icon",
+// ];
 
 export default function RichtextEditor({
   children,
@@ -140,6 +140,7 @@ export default function RichtextEditor({
             // all checks have passed
             return true;
           } catch (error) {
+            console.log(error);
             return false;
           }
         },
@@ -165,7 +166,7 @@ export default function RichtextEditor({
       attributes: {
         class: "w-full h-full cursor-text px-8 py-5",
       },
-      handleDrop(view, event, slice, moved) {
+      handleDrop(view, event, _, moved) {
         if (
           !moved &&
           event.dataTransfer &&
@@ -278,7 +279,7 @@ export default function RichtextEditor({
 
   useEffect(() => {
     mainSidebar.setOpen(false);
-  }, []);
+  }, [mainSidebar]);
 
   return (
     <div className="h-full overflow-hidden py-2 pr-4 flex flex-row">

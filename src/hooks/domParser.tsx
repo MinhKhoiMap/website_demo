@@ -1,12 +1,9 @@
 import { DomElement } from "htmlparser2";
 import Image from "next/image";
-import ReactHtmlParser, {
-  processNodes,
-  convertNodeToElement,
-} from "react-html-parser";
+import ReactHtmlParser from "react-html-parser";
 
 export const useDOMParser = (htmlString: string) => {
-  const transform = (node: DomElement, index: number) => {
+  const transform = (node: DomElement, _: number) => {
     if (node.type === "tag" && node.name === "img") {
       return (
         <Image

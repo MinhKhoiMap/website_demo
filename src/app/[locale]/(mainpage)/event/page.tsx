@@ -1,10 +1,7 @@
-import { GetServerSideProps, NextPage } from "next";
-
 import PostCard from "@/components/dateCard";
 import Pagination from "@/components/pagination";
 import { getPostServices } from "@/services/post.service";
 import { RequestProps } from "@/types/page.type";
-import PageHeader from "@/components/partials/pageHeader";
 
 export default async function EventPage({
   searchParams,

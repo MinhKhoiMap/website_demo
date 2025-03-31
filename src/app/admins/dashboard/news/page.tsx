@@ -4,7 +4,7 @@ import { RequestProps } from "@/types/page.type";
 import React from "react";
 import { DataTableRowActions } from "../components/datatable-row-actions";
 import DataTable from "../components/datatable";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import ErrorComp from "../components/error";
 import { ArrowDownToDot, ArrowUpFromDot } from "lucide-react";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
@@ -14,7 +14,7 @@ export default async function page({ searchParams, params }: RequestProps) {
   const lang = (await params).locale;
 
   try {
-    const cookieStorage = await cookies();
+    // const cookieStorage = await cookies();
 
     const {
       payload: { data, totalPage },

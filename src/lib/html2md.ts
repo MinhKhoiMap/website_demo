@@ -1,7 +1,6 @@
 import envConfig from "@/config";
-import { Options } from "rehype-parse";
 import { Plugin } from "unified";
-import { Node, Parent } from "unist";
+import { Parent } from "unist";
 import { remark } from "remark";
 import html from "remark-html";
 
@@ -21,7 +20,7 @@ const customPlugin: Plugin<[CustomPluginOptions?]> = (options) => {
     visit(
       tree,
       "element",
-      (node: any, index: number | null, parent: Parent | null) => {
+      (node: any, index: number | null, _: Parent | null) => {
         if (node.tagName !== "img" || index === null) return;
 
         if (String(node.properties.src).startsWith("blob")) {
@@ -49,9 +48,9 @@ export default async function processHTMLContent(
 ): Promise<string> {
   const unified = (await import("unified")).unified;
   const rehypeParse = (await import("rehype-parse")).default;
-  const remarkStringify = (await import("remark-stringify")).default;
+  // const remarkStringify = (await import("remark-stringify")).default;
   const rehypeStringify = (await import("rehype-stringify")).default;
-  const rehypeRemark = (await import("rehype-remark")).default;
+  // const rehypeRemark = (await import("rehype-remark")).default;
 
   const converted = await unified()
     .use(rehypeParse, { fragment: true })

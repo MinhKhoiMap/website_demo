@@ -9,7 +9,6 @@ export default async function page({ params }: RequestProps) {
   const locale = (await params).locale;
   const {
     payload: { data },
-    status,
   } = await getMemberServices.getDetail("network", (await params).id, locale);
 
   return (

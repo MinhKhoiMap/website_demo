@@ -1,13 +1,12 @@
 import { useDOMParser as DOMParser } from "@/hooks/domParser";
 import { getPostServices } from "@/services/post.service";
 import { RequestProps } from "@/types/page.type";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default async function page({ params }: RequestProps) {
   const locale = (await params).locale;
   const {
     payload: { data },
-    status,
   } = await getPostServices.getPost("event", (await params).id, locale);
 
   return (

@@ -4,8 +4,8 @@ import PageHeader from "@/components/partials/pageHeader";
 import { RequestProps } from "@/types/page.type";
 
 export default async function page({ searchParams, params }: RequestProps) {
-  const locale = (await params).locale;
-  const page = (await searchParams).page;
+  // const locale = (await params).locale;
+  // const page = (await searchParams).page;
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { PageHeaderContextComponent } from "@/app/context";
 import { useDOMParser as DOMParser } from "@/hooks/domParser";
 import { getPostServices } from "@/services/post.service";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default async function page({
   params,

@@ -3,10 +3,7 @@ import Mansory from "@/components/mansory";
 import PageHeader from "@/components/partials/pageHeader";
 import { Separator } from "@/components/ui/separator";
 import { CollaborationStudioProject } from "@/schemaValidations/studiolab.schema";
-import {
-  getCollaborationServices,
-  getISCMServices,
-} from "@/services/studiolab.service";
+import { getCollaborationServices } from "@/services/studiolab.service";
 import { RequestProps } from "@/types/page.type";
 import { format } from "date-fns";
 import Image from "next/image";

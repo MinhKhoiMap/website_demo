@@ -1,6 +1,4 @@
 import envConfig from "@/config";
-import z from "zod";
-import { getCookie } from "./cookies";
 
 type CustomOptions = RequestInit & {
   baseUrl?: string | undefined;

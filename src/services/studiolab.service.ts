@@ -1,6 +1,5 @@
 import http from "@/lib/http";
 import {
-  CollaborationStudioCardType,
   CollaborationStudioListResType,
   CollaborationStudioProjectResType,
 } from "@/schemaValidations/studiolab.schema";

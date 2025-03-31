@@ -4,7 +4,7 @@ import { getPendingPost } from "@/services/post.service";
 import DataTable from "./components/datatable";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { DataTableRowActions } from "./components/datatable-row-actions";
-import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+// import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
 import AcceptPendingPost from "./accpetPendingPost";
 
@@ -70,7 +70,7 @@ export default async function page({ params }: RequestProps) {
       </DataTable>
     );
   } catch (error) {
-    console.log(error, "wtf");
-    return <p>afasdf</p>
+    console.log(error);
+    return <ErrorComp />;
   }
 }

@@ -1,6 +1,5 @@
 import { ibm_plex_sans } from "@/app/fontDeclare";
 import Card from "@/components/card";
-import Mansory from "@/components/mansory";
 import PageHeader from "@/components/partials/pageHeader";
 import { Separator } from "@/components/ui/separator";
 import { getCollaborationServices } from "@/services/studiolab.service";
@@ -13,7 +12,7 @@ export default async function page({ searchParams, params }: RequestProps) {
   const page = (await searchParams).page;
 
   const {
-    payload: { data, totalPage },
+    payload: { data },
   } = await getCollaborationServices.getList(page, locale);
 
   return (

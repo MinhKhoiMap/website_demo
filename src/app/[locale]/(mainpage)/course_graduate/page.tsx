@@ -1,5 +1,5 @@
 import Card from "@/components/card";
-import DateCard from "@/components/dateCard";
+// import DateCard from "@/components/dateCard";
 import PageHeader from "@/components/partials/pageHeader";
 import { getCourseServices } from "@/services/course.service";
 import { RequestProps } from "@/types/page.type";
@@ -12,7 +12,7 @@ export default async function CourseGraduatePage({
   const page = (await searchParams).page;
 
   const {
-    payload: { data, totalPage },
+    payload: { data },
   } = await getCourseServices.getList("course_graduate", locale);
 
   return (

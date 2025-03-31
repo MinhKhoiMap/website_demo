@@ -1,6 +1,5 @@
 import MarkdownRenderer from "@/components/markdownRenderer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useDOMParser } from "@/hooks/domParser";
 import { getPublicationList } from "@/services/research.service";
 import { getLocale } from "next-intl/server";
 import Link from "next/link";
