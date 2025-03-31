@@ -14,7 +14,7 @@ export default async function NewsPage({ searchParams, params }: RequestProps) {
     const {
       payload: { data, totalPage },
     } = await getPostServices.getList("news", page, locale);
-  
+
     return (
       <>
         <section className="section">
@@ -40,6 +40,6 @@ export default async function NewsPage({ searchParams, params }: RequestProps) {
       </>
     );
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
