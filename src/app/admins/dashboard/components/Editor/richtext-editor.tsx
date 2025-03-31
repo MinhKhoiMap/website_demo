@@ -173,15 +173,15 @@ export default function RichtextEditor({
           event.dataTransfer.files[0]
         ) {
           event.preventDefault();
-          let files: FileList = event.dataTransfer.files;
+          const files: FileList = event.dataTransfer.files;
 
           for (let i = 0; i < files.length; i++) {
-            let file: File = normalizeFile(files[i]);
+            const file: File = normalizeFile(files[i]);
 
             if (/^image\/(jpeg|png|gif|webp?)$/.test(file.type)) {
               setImageUploads((prev) => [...prev, file]);
 
-              let _URL = window.URL;
+              const _URL = window.URL;
               const url = _URL.createObjectURL(file);
 
               const { schema } = view.state;
@@ -213,12 +213,12 @@ export default function RichtextEditor({
         const pasteFiles = event.clipboardData?.files;
         if (pasteFiles) {
           for (let i = 0; i < pasteFiles.length; i++) {
-            let file: File = normalizeFile(pasteFiles[i]);
+            const file: File = normalizeFile(pasteFiles[i]);
 
             if (/^image\/(jpeg|png|gif|webp?)$/.test(file.type)) {
               setImageUploads((prev) => [...prev, file]);
 
-              let _URL = window.URL;
+              const _URL = window.URL;
               const url = _URL.createObjectURL(file);
 
               const { schema } = view.state;
@@ -250,16 +250,20 @@ export default function RichtextEditor({
     try {
       if (editor) {
         const html = editor.getHTML();
-        const description = new DOMParser()
-          .parseFromString(html, "text/xml")
-          .getElementsByTagName("span")[0].innerHTML;
+        console.log(html);
+        const description = new DOMParser().parseFromString(
+          html,
+          "text/xml"
+        ).firstElementChild;
+        if (!description) throw new Error("Content must not empty");
+
         const content = await processHTMLContent(
           html,
           categories.category,
           categories.postID
         );
 
-        await onSubmit(imageUploads, content, description);
+        await onSubmit(imageUploads, content, description.innerHTML);
       } else {
         throw new Error("Error");
       }
@@ -312,7 +316,9 @@ export default function RichtextEditor({
         fieldList={metaField}
       /> */}
       <div className="editor w-[90%] flex-1 flex flex-col border-2 border-gray-400 rounded-lg overflow-hidden">
-        <Menubar editor={editor} setImageUploads={setImageUploads} />
+        {editor && (
+          <Menubar editor={editor} setImageUploads={setImageUploads} />
+        )}
         <EditorContent
           editor={editor}
           className="tiptap__wrapper flex-1 py overflow-auto"

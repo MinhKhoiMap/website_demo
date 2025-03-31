@@ -18,7 +18,7 @@ export default async function page({ params }: RequestProps) {
             <div className="col-12">
               <h1 className="section-title">{data.metadata.title}</h1>
             </div>
-            {data.metadata.showImage && (
+            {/* {data.metadata.showImage && (
               <div className="col-12 mb-4">
                 <Image
                   style={{ objectFit: "contain" }}
@@ -29,7 +29,7 @@ export default async function page({ params }: RequestProps) {
                   height={400}
                 />
               </div>
-            )}
+            )} */}
           </div>
 
           {/* <!-- event details --> */}

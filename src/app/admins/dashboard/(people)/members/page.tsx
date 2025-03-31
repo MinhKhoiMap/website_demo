@@ -18,23 +18,24 @@ export default async function page({ searchParams, params }: RequestProps) {
       totalPage={totalPage}
       tableHead={["Title", "Course", "Order", "Draft"]}
       currentPage={page}
-      children={data.map((people, id) => (
+    >
+      {data.map((people, id) => (
         <TableRow key={people.id} className="h-[75px]">
           <TableCell>{6 * (page - 1) + id + 1}.</TableCell>
           <TableCell
             className="flex-1 max-w-[700px] h-fit overflow-hidden"
-            title={people.title}
+            title={people.name}
           >
             <p className="line-clamp-1 max-w-[700px]">{people.title}</p>
           </TableCell>
-          <TableCell>{useDOMParser(people.course)}</TableCell>
-          <TableCell className="capitalize">{String(people.weight)}</TableCell>
+          <TableCell>{useDOMParser(people.title)}</TableCell>
+          <TableCell className="capitalize">{String(people.order)}</TableCell>
           <TableCell className="capitalize">{String(people.draft)}</TableCell>
-          <TableCell className="flex justify-end">
+          {/* <TableCell className="flex justify-end">
             <DataTableRowActions />
-          </TableCell>
+          </TableCell> */}
         </TableRow>
       ))}
-    />
+    </DataTable>
   );
 }

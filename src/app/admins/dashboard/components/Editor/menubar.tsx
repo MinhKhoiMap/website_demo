@@ -53,25 +53,21 @@ import {
 import { Level } from "@tiptap/extension-heading";
 
 const HeadingIcon = [
-  <Heading1 />,
-  <Heading2 />,
-  <Heading3 />,
-  <Heading4 />,
-  <Heading5 />,
-  <Heading6 />,
+  <Heading1 key="heading 1" />,
+  <Heading2 key="heading 2" />,
+  <Heading3 key="heading 3" />,
+  <Heading4 key="heading 4" />,
+  <Heading5 key="heading 5" />,
+  <Heading6 key="heading 6" />,
 ];
 
 export default function Menubar({
   editor,
   setImageUploads,
 }: {
-  editor: Editor | null;
+  editor: Editor;
   setImageUploads: Dispatch<SetStateAction<File[]>>;
 }) {
-  if (!editor) {
-    return null;
-  }
-
   const [link, setLink] = useState<string | null>("");
   const [youtube, setYoutube] = useState<string | null>("");
 
@@ -80,8 +76,8 @@ export default function Menubar({
 
     if (files && editor) {
       for (let i = 0; i < files.length; i++) {
-        let file: File = files[i];
-        let url = URL.createObjectURL(files[i]);
+        const file: File = files[i];
+        const url = URL.createObjectURL(files[i]);
 
         editor.commands.setImage({
           src: url,
@@ -128,7 +124,7 @@ export default function Menubar({
         <Separator orientation="vertical" className="bg-gray-400 h-5" />
 
         {HeadingIcon.map((_, id) => (
-          <Tooltip>
+          <Tooltip key={id}>
             <TooltipTrigger>
               <button
                 onClick={() =>

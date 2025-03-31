@@ -22,7 +22,7 @@ export default function Pagination({ totalPage }: { totalPage: number }) {
     }
   }
 
-  let start = Math.max(end - 4, 1);
+  const start = Math.max(end - 4, 1);
   for (let i = start; i <= end; i++) pagination.push(i);
 
   return (

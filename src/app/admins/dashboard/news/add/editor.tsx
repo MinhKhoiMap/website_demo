@@ -86,7 +86,7 @@ const Combobox = ({
         </SelectTrigger>
         <SelectContent>
           {valueArr.map((value) => (
-            <SelectItem value={value.value}>
+            <SelectItem value={value.value} key={value.value}>
               <span className="capitalize cursor-pointer flex gap-2 items-center">
                 {value.value} {value.icon}
               </span>
@@ -348,7 +348,7 @@ export default function Editor({ locale }: { locale: string }) {
 
       const meta: { [key: string]: any } = {};
 
-      var thumb: File | undefined;
+      let thumb: File | undefined;
 
       for (const f of metaDataForm.keys()) {
         if (metaDataForm.get(f) instanceof File) {
@@ -365,7 +365,7 @@ export default function Editor({ locale }: { locale: string }) {
       if (!(meta.id && meta.title && thumb))
         throw new Error("Required field is missing");
 
-      meta.image = `/images/news/${meta.id}/${thumb.name}`;
+      meta.thumbnail = `/images/news/${meta.id}/${thumb.name}`;
 
       const bodyParse = CreatePostBody.safeParse({
         metadata: meta,
@@ -373,7 +373,6 @@ export default function Editor({ locale }: { locale: string }) {
       });
 
       if (bodyParse.error) throw new Error(bodyParse.error.message);
-
       await uploadImageService("news", meta.id, imageUploads);
 
       await createUpdatePostServices.createPost(
@@ -417,17 +416,17 @@ export default function Editor({ locale }: { locale: string }) {
       >
         <InputString field="id" name="id" state={postID} setState={setPostID} />
         <InputString field="title" name="title" />
-        <Combobox
+        {/* <Combobox
           field="show image"
           name="showImage"
           valueArr={[{ value: "true" }, { value: "false" }]}
-        />
+        /> */}
         <Combobox
           field="draft"
           name="draft"
           valueArr={[{ value: "true" }, { value: "false" }]}
         />
-        <DatePicker field="publish date" date={date} setDate={setDate} />
+        <DatePicker field="publishDate" date={date} setDate={setDate} />
         <FilesInput field="thumbnail" name="image" />
         <Checkbox
           field="SDGs"

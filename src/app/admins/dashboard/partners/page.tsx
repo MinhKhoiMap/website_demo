@@ -15,9 +15,8 @@ export default async function page({ searchParams, params }: RequestProps) {
   } = await getPartnerServices.getList(page, locale);
 
   return (
-    <DataTable
-      tableHead={["Name", "Link", "Draft"]}
-      children={data.map((partner, id) => (
+    <DataTable tableHead={["Name", "Link", "Draft"]} currentPage={page}>
+      {data.map((partner, id) => (
         <TableRow key={partner.title} className="h-[75px]">
           <TableCell>{6 * (page - 1) + id + 1}.</TableCell>
           <TableCell
@@ -40,12 +39,11 @@ export default async function page({ searchParams, params }: RequestProps) {
             )}
           </TableCell>
           <TableCell className="capitalize">{String(partner.draft)}</TableCell>
-          <TableCell className="flex justify-end">
-            <DataTableRowActions />
-          </TableCell>
+          {/* <TableCell className="flex justify-end">
+            <DataTableRowAction  />
+          </TableCell> */}
         </TableRow>
       ))}
-      currentPage={page}
-    />
+    </DataTable>
   );
 }

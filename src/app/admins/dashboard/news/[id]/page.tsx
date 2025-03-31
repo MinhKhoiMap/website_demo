@@ -12,7 +12,7 @@ export default async function page({ params }: RequestProps) {
 
   return (
     <section className="overflow-auto h-screen">
-      <Editor data={data.content} locale={locale} postID={postID} />
+      <Editor data={data} locale={locale} />
     </section>
   );
 }

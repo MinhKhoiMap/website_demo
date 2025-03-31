@@ -16,7 +16,7 @@ export const mainMenuEn: Array<MenuType> = [
     weight: 2,
     subMenu: [
       {
-        name: "News",
+        name: "ISCM Impactful Life",
         url: "/news",
         weight: 1,
       },
@@ -36,7 +36,7 @@ export const mainMenuEn: Array<MenuType> = [
         weight: 4,
       },
       {
-        name: "Coming Events",
+        name: "Up-coming Events",
         url: "/event",
         weight: 5,
       },

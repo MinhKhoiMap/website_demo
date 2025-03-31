@@ -37,8 +37,8 @@ export default async function page({ searchParams, params }: RequestProps) {
               optio tenetur suscipit iste beatae excepturi, nesciunt officiis!
             </p>
           </div>
-          <div className="col-lg-7 col-12 h-[450px]">
-            <figure className="w-full h-full">
+          <div className="col-lg-7 col-12 max-h-[450px]">
+            <figure className="w-full h-fit">
               <Image
                 src="http://localhost:4000/public/static/images/studiolab/collaboration/thanhda/thanhda.jpg"
                 alt={"fasdf"}
@@ -53,7 +53,7 @@ export default async function page({ searchParams, params }: RequestProps) {
         <div className="row gap-y-3 mt-24">
           {data.map((project) => (
             <div
-              className="col-md-6 col-lg-4 col-12 flex justify-center"
+              className="col-lg-4 col-12 flex justify-center"
               key={project.id}
             >
               <Card
@@ -62,7 +62,7 @@ export default async function page({ searchParams, params }: RequestProps) {
                 basePath="./thanhda"
                 title={project.title}
                 style={{
-                  maxWidth: "350px",
+                  width: "100%",
                   fontWeight: "400",
                 }}
                 subTitle={

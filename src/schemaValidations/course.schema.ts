@@ -33,7 +33,7 @@ export type CourseCardType = z.TypeOf<typeof CourseCardSchema>;
 
 export const CourseListResSchema = z.object({
   data: z.array(CourseCardSchema),
-  headerPageInfo: PageHeaderSchema,
+  // headerPageInfo: PageHeaderSchema,
   totalPage: z.number(),
   message: z.string(),
 });

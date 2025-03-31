@@ -4,6 +4,9 @@ import { RequestProps } from "@/types/page.type";
 import React from "react";
 import { DataTableRowActions } from "../components/datatable-row-actions";
 import DataTable from "../components/datatable";
+import ErrorComp from "../components/error";
+import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import { ArrowDownToDot, ArrowUpFromDot } from "lucide-react";
 
 export default async function page({ searchParams, params }: RequestProps) {
   const page = (await searchParams).page || 1;
@@ -19,7 +22,8 @@ export default async function page({ searchParams, params }: RequestProps) {
         totalPage={totalPage}
         tableHead={["Title", "Publish Date", "Draft"]}
         currentPage={page}
-        children={data.map((post, id) => (
+      >
+        {data.map((post, id) => (
           <TableRow key={post.id} className="h-[75px]">
             <TableCell>{6 * (page - 1) + id + 1}.</TableCell>
             <TableCell
@@ -38,14 +42,22 @@ export default async function page({ searchParams, params }: RequestProps) {
                 category="event"
                 locale={lang}
                 isDraft={post.draft}
+                customActions={[
+                  <DropdownMenuItem className="cursor-pointer" key="move up">
+                    <ArrowUpFromDot /> Move Up
+                  </DropdownMenuItem>,
+                  <DropdownMenuItem className="cursor-pointer" key="move down">
+                    <ArrowDownToDot /> Move Down
+                  </DropdownMenuItem>,
+                ]}
               />
             </TableCell>
           </TableRow>
         ))}
-      />
+      </DataTable>
     );
   } catch (error) {
     console.log(error);
-    return <div>lfkajsdlk;fjasl;dfja;lksdf</div>;
+    return <ErrorComp />;
   }
 }

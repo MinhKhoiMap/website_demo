@@ -2,6 +2,7 @@ import { ibm_plex_sans } from "@/app/fontDeclare";
 import Mansory from "@/components/mansory";
 import PageHeader from "@/components/partials/pageHeader";
 import { Separator } from "@/components/ui/separator";
+import { CollaborationStudioProject } from "@/schemaValidations/studiolab.schema";
 import {
   getCollaborationServices,
   getISCMServices,
@@ -16,14 +17,23 @@ export default async function page({ params }: RequestProps) {
 
   const {
     payload: { data },
-  } = await getISCMServices.getProject(para.id, para.locale);
+  } = await getCollaborationServices.getProject(para.id, para.locale);
+
+  const parse = CollaborationStudioProject.safeParse(data);
+
+  if (parse.error) {
+    console.log(parse.error);
+    return null;
+  }
+
+  const content = parse.data;
 
   return (
     <>
       <PageHeader />
       <section className="container py-8">
         <h1 className={`text-center ${ibm_plex_sans.className}`}>
-          {data.title}
+          {content.title}
         </h1>
         <div className="row mt-20">
           <div className="col-lg-5 col-12 h-full">
@@ -35,12 +45,12 @@ export default async function page({ params }: RequestProps) {
               </span>
               <span className="flex">
                 <p className="underline font-bold mb-0">Location:</p>
-                <p>{data.location}.</p>
+                <p>{content.location}.</p>
               </span>
               <span>
                 <p className="underline font-bold mb-0">Supervisor Team:</p>
                 <div className="flex flex-wrap">
-                  {data.supervisor.map((supervisor) => (
+                  {content.supervisor.map((supervisor) => (
                     <p key={supervisor} className="mb-2 w-1/2 text-center">
                       {supervisor}
                     </p>
@@ -50,7 +60,7 @@ export default async function page({ params }: RequestProps) {
               <span>
                 <p className="underline font-bold mb-0">Student List:</p>
                 <div className="flex flex-wrap">
-                  {data.members.map((member) => (
+                  {content.members.map((member) => (
                     <p key={member} className="mb-2 w-1/2 text-center">
                       {member}
                     </p>
@@ -63,7 +73,7 @@ export default async function page({ params }: RequestProps) {
           <div className="col-lg-6 col-12">
             <figure className="w-full mt-2 mt-lg-0 mb-5 mb-lg-0">
               <Image
-                src={data.thumbnail}
+                src={content.thumbnail}
                 alt={para.id}
                 width={1000}
                 height={800}
@@ -71,7 +81,7 @@ export default async function page({ params }: RequestProps) {
                 className="w-full h-full object-contain object-top"
               />
             </figure>
-            <Mansory listItems={data.gallery} />
+            <Mansory listItems={content.gallery} />
           </div>
         </div>
       </section>

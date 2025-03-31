@@ -25,8 +25,6 @@ export default async function page({ params }: RequestProps) {
 
   const content = parse.data;
 
-  console.log(content);
-
   return (
     <>
       <PageHeader />
@@ -50,7 +48,10 @@ export default async function page({ params }: RequestProps) {
                 <p className="underline font-bold mb-0">Supervisor Team:</p>
                 <div className="flex flex-wrap">
                   {content.supervisor.map((supervisor) => (
-                    <p key={supervisor} className="mb-2 w-1/2 text-center">
+                    <p
+                      key={supervisor}
+                      className="mb-2 w-1/2 text-center col-12 col-lg-6"
+                    >
                       {supervisor}
                     </p>
                   ))}
@@ -58,10 +59,13 @@ export default async function page({ params }: RequestProps) {
               </span>
               <span>
                 <p className="underline font-bold mb-0">Student List:</p>
-                <div className="flex flex-wrap">
+                <div className="flex flex-wrap row">
                   {content?.members &&
                     content.members.map((member) => (
-                      <p key={member} className="mb-2 w-1/2 text-center">
+                      <p
+                        key={member}
+                        className="mb-2 w-1/2 text-center col-12 col-lg-6"
+                      >
                         {member}
                       </p>
                     ))}

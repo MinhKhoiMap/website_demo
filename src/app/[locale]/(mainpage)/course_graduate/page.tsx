@@ -12,7 +12,7 @@ export default async function CourseGraduatePage({
   const page = (await searchParams).page;
 
   const {
-    payload: { data, totalPage, headerPageInfo },
+    payload: { data, totalPage },
   } = await getCourseServices.getList("course_graduate", locale);
 
   return (

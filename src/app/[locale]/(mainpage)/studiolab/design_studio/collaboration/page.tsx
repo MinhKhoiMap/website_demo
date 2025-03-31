@@ -24,7 +24,7 @@ export default async function page({ searchParams, params }: RequestProps) {
           deleniti dolore doloribus, ut sit nisi, dolorum minima!
         </p>
         <div className="row gap-y-3 mt-24">
-          <div className="col-4">
+          <div className="col-12 col-lg-4">
             <Card
               id="thanhda"
               thumb="http://localhost:4000/public/static/images/studiolab/collaboration/thanhda/thanhda.jpg"

@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { Image } from "antd";
+import { Image as AntImage } from "antd";
 
 export default function Mansory({ listItems }: { listItems: string[] }) {
   return (
-    <Image.PreviewGroup
+    <AntImage.PreviewGroup
       preview={{
         maskStyle: {
           backgroundColor: "rgba(0, 0, 0, 0.7)",
@@ -20,11 +20,11 @@ export default function Mansory({ listItems }: { listItems: string[] }) {
             key={item}
           >
             <div className="flex justify-center w-full overflow-hidden">
-              <Image className="w-full" src={item} />
+              <AntImage className="w-full" src={item} alt={item} />
             </div>
           </div>
         ))}
       </div>
-    </Image.PreviewGroup>
+    </AntImage.PreviewGroup>
   );
 }

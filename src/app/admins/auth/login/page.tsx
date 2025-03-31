@@ -60,7 +60,7 @@ const LogIn = () => {
         const temp = localStorage.getItem("sessionToken");
         if (temp !== null) {
           const token = JSON.parse(temp);
-          // setCookie("sessionToken", token.token, token.expiresAt);
+          setCookie("sessionToken", token.token, token.expiresAt);
         }
       } catch (error) {
         console.log(error);
@@ -150,7 +150,8 @@ const Auth = () => {
               Adminstrators <br /> Page!
             </p>
             <p className="w-fit text-base font-bold">
-              If you don't have account <br /> please contact IT department!
+              If you don&apos;t have account <br /> please contact IT
+              department!
             </p>
           </div>
           <div

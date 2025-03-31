@@ -1,6 +1,6 @@
 "use client";
 
-import { useDOMParser } from "@/hooks/domParser";
+import { useDOMParser as DOMParser } from "@/hooks/domParser";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -39,13 +39,13 @@ export default function Card({
       href={{
         pathname: id ? `${basePath}/${id}` : basePath,
       }}
-      className={`card border-0 rounded-0 hover-shadow mb-5 !w-full h-full ${classname}`}
+      className={`card border-0 rounded-0 hover-shadow !mb-0 mb-lg-5 !w-full h-full ${classname}`}
       title={title}
       style={{ cursor: "pointer", ...style }}
       onClick={(e) => isDisabled && e.preventDefault()}
     >
       <Image
-        className="card-img-top rounded-0"
+        className="card-img-top rounded-0 h-full"
         src={thumb}
         alt={`${title} - ${subTitle}`}
         style={{
@@ -82,7 +82,7 @@ export default function Card({
           </h4>
           <p className="mt-3">
             {typeof subTitle === "string"
-              ? useDOMParser(subTitle || "")
+              ? DOMParser(subTitle || "")
               : subTitle}
           </p>
         </div>

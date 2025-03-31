@@ -68,8 +68,8 @@ export const PageHeaderContextComponent = ({
   description?: string;
 }) => {
   const { setTitle, setDescription } = usePageHeaderContext();
-  title && setTitle(title);
-  description && setDescription(description);
+  if (title) setTitle(title);
+  if (description) setDescription(description);
 
   return <></>;
 };

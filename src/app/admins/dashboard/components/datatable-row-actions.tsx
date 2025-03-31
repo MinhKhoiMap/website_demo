@@ -23,12 +23,14 @@ export function DataTableRowActions({
   locale,
   isDraft,
   customActions,
+  customEditLink,
 }: {
   id: string;
   category: string;
   locale: string;
   isDraft: boolean;
-  customActions: React.JSX.Element[];
+  customActions?: React.JSX.Element[];
+  customEditLink?: string;
 }) {
   const router = useRouter();
   const currentPathname = usePathname();
@@ -52,7 +54,7 @@ export function DataTableRowActions({
   async function handleHide() {
     try {
       await createUpdatePostServices.updatePost(category, id, locale, {
-        metadata: { draft: !isDraft },
+        metadata: { id, draft: !isDraft },
       });
 
       router.refresh();
@@ -80,7 +82,11 @@ export function DataTableRowActions({
       <DropdownMenuContent align="end" className="w-[160px]">
         <DropdownMenuItem
           className="cursor-pointer"
-          onClick={() => router.push(`${currentPathname}/${id}`)}
+          onClick={() =>
+            customEditLink
+              ? router.push(`${currentPathname}/${customEditLink}/${id}`)
+              : router.push(`${currentPathname}/${id}`)
+          }
         >
           <Pen /> Edit
         </DropdownMenuItem>

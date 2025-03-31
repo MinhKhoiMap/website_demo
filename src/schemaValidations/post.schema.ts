@@ -4,10 +4,10 @@ import { PageHeaderSchema } from "./pageHeader.schema";
 export const MetaDataSchema = z.object({
   id: z.string(),
   title: z.string(),
-  publishDate: z.string(),
+  publishDate: z.date(),
   draft: z.boolean(),
   thumbnail: z.string().startsWith("http"),
-  showImage: z.boolean(),
+  sdgs: z.number().array().max(3),
   author: z.string().readonly(),
   description: z.string(),
 });
@@ -48,15 +48,36 @@ export const PostListResSchema = z.object({
 
 export type PostListResType = z.TypeOf<typeof PostListResSchema>;
 
+export const PendingPostSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  publishDate: z.date(),
+  draft: z.boolean().default(false),
+  thumbnail: z.string(),
+  categories: z.number().array().nonempty(),
+  author: z.string(),
+  // sdgs: z.string().array().max(3).nonempty(),
+});
+
+export type PendingPostSchema = z.TypeOf<typeof PendingPostSchema>;
+
+export const PendingPostResSchema = z.object({
+  data: z.array(PendingPostSchema),
+  message: z.string(),
+});
+
+export type PendingPostResType = z.TypeOf<typeof PendingPostResSchema>;
+
 export const CreatePostBody = z.object({
   metadata: z.object({
+    id: z.string(),
     title: z.string().min(1),
     thumbnail: z.string(),
     draft: z
       .string()
       .transform((value) => value === "true")
       .pipe(z.boolean()),
-    publishDate: z.string().default(new Date().toISOString()),
+    publishDate: z.date().default(new Date()),
     // category: z.string(),
     sdgs: z.number().array().nonempty().max(3),
     description: z.string().default(""),
@@ -83,6 +104,7 @@ const ACCEPTED_IMAGE_TYPES = [
 export const UpdatePostBody = z.object({
   metadata: z
     .object({
+      id: z.string(),
       title: z.string().min(1).optional(),
       thumbnail: z.string().optional(),
       draft: z
@@ -90,12 +112,9 @@ export const UpdatePostBody = z.object({
         .transform((value) => value === "true")
         .pipe(z.boolean())
         .optional(),
-      showImage: z
-        .string()
-        .transform((value) => value === "true")
-        .pipe(z.boolean())
-        .optional(),
       publishDate: z.string().default(new Date().toISOString()).optional(),
+      sdgs: z.number().array().nonempty().max(3).optional(),
+      description: z.string().default("").optional(),
     })
     .optional(),
   content: z.string().min(1).optional(),

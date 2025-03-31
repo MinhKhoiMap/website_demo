@@ -2,6 +2,8 @@ import envConfig from "@/config";
 import { Options } from "rehype-parse";
 import { Plugin } from "unified";
 import { Node, Parent } from "unist";
+import { remark } from "remark";
+import html from "remark-html";
 
 let visit: any;
 
@@ -60,4 +62,9 @@ export default async function processHTMLContent(
   // console.log(converted.value.toString());
 
   return converted.value.toString();
+}
+
+export async function markdownToHtml(markdown: string): Promise<string> {
+  const result = await remark().use(html).process(markdown);
+  return result.toString();
 }

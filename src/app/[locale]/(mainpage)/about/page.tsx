@@ -10,7 +10,7 @@ import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { PageHeaderContextComponent } from "@/app/context";
-import { useDOMParser } from "@/hooks/domParser";
+import { useDOMParser as DOMParser } from "@/hooks/domParser";
 import Image from "next/image";
 
 const mission = {
@@ -36,7 +36,7 @@ export default function AboutPage() {
 
   async function markdownToHtml(markdown: string) {
     const result = await remark().use(html).process(markdown);
-    return result.toString();
+    return DOMParser(result.toString());
   }
 
   return (
@@ -84,10 +84,10 @@ export default function AboutPage() {
                 />
               </div>
               <p className="text-justify italic">
-                {useDOMParser(String(markdownToHtml(i18n("about_quote"))))}
+                {markdownToHtml(i18n("about_quote"))}
               </p>
               <p className="font-bold mt-3">
-                {useDOMParser(String(markdownToHtml(i18n("about_author"))))}
+                {markdownToHtml(i18n("about_author"))}
               </p>
             </div>
           </div>

@@ -12,10 +12,12 @@ export const ibm_plex_sans = IBM_Plex_Sans({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
-export default [
+const fontList = [
   { name: "barlow", font: barlow, default: true },
   {
     name: "IBM plex sans",
     font: ibm_plex_sans,
   },
 ];
+
+export default fontList;

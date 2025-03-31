@@ -37,7 +37,7 @@ export default function MetadataForm({
         const type = field.type.toLowerCase();
         if (type === "zodreadonly") {
           return (
-            <div className="my-2">
+            <div className="my-2" key={field.field}>
               <Label
                 htmlFor={field.field}
                 className="text-md capitalize mb-2 block"
@@ -56,7 +56,7 @@ export default function MetadataForm({
         }
         if (type === "zodstring") {
           return (
-            <div className="my-2">
+            <div className="my-2" key={field.field}>
               <Label
                 htmlFor={field.field}
                 className="text-md capitalize mb-2 block"
@@ -76,7 +76,7 @@ export default function MetadataForm({
 
         if (type === "zodboolean") {
           return (
-            <div className="my-2">
+            <div className="my-2" key={field.field}>
               <Label
                 htmlFor={field.field}
                 className="text-md capitalize mb-2 block"

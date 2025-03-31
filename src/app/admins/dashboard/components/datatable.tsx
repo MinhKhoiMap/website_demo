@@ -30,7 +30,9 @@ export default function DataTable({
           <TableRow>
             <TableHead className="font-bold"></TableHead>
             {tableHead.map((head) => (
-              <TableHead className="font-bold">{head}</TableHead>
+              <TableHead className="font-bold" key={head}>
+                {head}
+              </TableHead>
             ))}
             <TableHead className="font-bold"></TableHead>
           </TableRow>

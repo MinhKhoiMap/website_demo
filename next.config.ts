@@ -14,6 +14,13 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "mutt-faithful-macaque.ngrok-free.app",
+        pathname: "/**",
+        search: "",
+        port: "",
+      },
+      {
+        protocol: "https",
         pathname: "images.pexels.com/**",
         hostname: "images.pexels.com",
       },

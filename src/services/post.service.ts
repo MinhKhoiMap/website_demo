@@ -2,6 +2,7 @@ import http from "@/lib/http";
 import {
   CreatePostBodyType,
   CreateUpdateResType,
+  PendingPostResType,
   PostCardType,
   PostListResType,
   PostResType,
@@ -80,4 +81,32 @@ const deletePostServices = {
   },
 };
 
-export { getPostServices, createUpdatePostServices, deletePostServices };
+const getPendingPost = {
+  getList: (lang: string, options?: { [key: string]: any }) => {
+    return http.get<PendingPostResType>(
+      `api/portal${lang ? `?lang=${lang}` : ""}`,
+      { ...options }
+    );
+  },
+};
+
+const acceptPendingPost = (
+  lang: string,
+  idPost: string,
+  category: string,
+  options?: { [key: string]: any }
+) => {
+  return http.put(
+    `api/portal/accept/${category}/${idPost}${lang ? `?lang=${lang}` : ""}`,
+    {},
+    { ...options }
+  );
+};
+
+export {
+  getPendingPost,
+  getPostServices,
+  createUpdatePostServices,
+  deletePostServices,
+  acceptPendingPost,
+};
